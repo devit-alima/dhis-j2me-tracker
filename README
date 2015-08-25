@@ -1,0 +1,62 @@
+DEVELOPER README
+****************
+
+DHIS Mobile is a free and open-source software for low-end Java phones.
+It is an extensible application that communicates with the popular HMIS
+application called DHIS2. It is a JavaME application that downloads forms
+from DHIS2 or Community DHIS into the mobile phone and displays 
+datasets or program stages on which a health worker can enter data and 
+sends to the online server.
+
+DHIS Mobile Developers are spread across the world and are located around 
+the world. The project is maintained at: https://launchpad.net/dhis-mobile
+
+Here is some introductory info to get you started:
+
+Initial reading
+===============
+
+The source-code is stored in the launchpad Bazaar repository and bugs/features
+are tracked at the launchpad project site. The primary discussion around the
+project happens at the developers mailing lists and joining the project at
+launchpad is the best way to get started.
+
+A related research project which is associated with the application and its
+design, development, implementation and evaluation is through the MobiHealth
+project at the University of Oslo: http://www.hisp.uio.no/projects/mobihealth/
+
+Building from source-code
+=========================
+
+Developers should start by downloading the source-code using the Bazaar distributed
+version control system <http://bazaar.canonical.com/en/>. After installing bazaar,
+the source code can be downloaded anonymously using command $> bzr branch lp:dhis-mobile
+
+Extract the project-files.zip into the same folder. These are required files for opening
+the project through Eclipse and allow easy importing the project to Eclipse workspace 
+
+The mobile application is developed using the MTJ Eclipse plugin. Thus, Eclipse needs to
+be downloaded and installed. After installing eclipse, MTJ needs to be installed using
+instructions located here: http://live.eclipse.org/node/614
+
+You would also like to install different JavaME emulators (e.g. WTK 2.5.2) to be able to
+emulate and view the application instead of having to copy the application to a mobile 
+phone.
+
+After installing the MTJ plugin, start/restart Eclipse and in the menu File->Import, 
+General -> Existing projects into workspace, then Next and Browse to the DHISMobile folder
+in the downloaded source.
+ 
+How can you help?
+=================
+
+   * Check the bug list at the DHIS Mobile Launchpad project,
+     or subscribe to the mailing list and discuss the project.
+     If you can volunteer for blueprints or bugs at the projects, 
+     or if you have any useful comments send email!
+
+   * Give us feedback!  Tell us what you like; tell us what you think
+     could be better.
+
+DHIS2 Mobile Developers
+<mobile-devs@hisp.uio.no>
