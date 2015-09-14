@@ -102,6 +102,7 @@ public class OrgUnitSelectView
                 {
                     if ( programType.equals( "3" ) )
                     {
+                        nameBasedMidlet.getProgramSelectView().setTargetScreen( targetScreen );
                         nameBasedMidlet.getProgramSelectView().setPrograms( ProgramRecordStore.getProgramByType( 3 ) );
                     }
                     else

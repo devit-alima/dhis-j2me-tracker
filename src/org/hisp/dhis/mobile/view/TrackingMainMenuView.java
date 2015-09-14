@@ -203,6 +203,7 @@ public class TrackingMainMenuView
                 if ( sizeOfOrgUnits > 1 )
                 {
                     nameBasedMidlet.getWaitingView().showView();
+                    nameBasedMidlet.getOrgUnitSelectView().setTargetScreen( nameBasedMidlet.SINGLE_EVENT_WITHOUT_REGISTRATION );
                     nameBasedMidlet.getOrgUnitSelectView().setProgramType( "3" );
                     nameBasedMidlet.getProgramSelectView().setTargetScreen( nameBasedMidlet.SINGLE_EVENT_WITHOUT_REGISTRATION );
                     nameBasedMidlet.getOrgUnitSelectView().showView();

@@ -42,7 +42,7 @@ public class DHISMIDlet
     extends MIDlet
 {
     // Debug Mode
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     // Flag
 

@@ -37,7 +37,6 @@ import org.hisp.dhis.mobile.midlet.DHISMIDlet;
 import org.hisp.dhis.mobile.midlet.NameBasedMIDlet;
 import org.hisp.dhis.mobile.model.OrgUnit;
 import org.hisp.dhis.mobile.model.Patient;
-import org.hisp.dhis.mobile.model.ProgramInstance;
 import org.hisp.dhis.mobile.model.ProgramStage;
 import org.hisp.dhis.mobile.model.ProgramStageDataElement;
 import org.hisp.dhis.mobile.model.Section;
@@ -487,33 +486,10 @@ public class TrackingDataEntryView
         else if ( arg.getCommand().getCommandName().equals( Text.SEND() ) )
         {
             namebasedMidlet.getWaitingView().showView();
-            if ( patient.getId() == 0 )
+            if ( patient == null || patient.getId() == 0 )
             {
                 collectInputData();
-                Vector programVector = patient.getEnrollmentPrograms();
-                for ( int i = 0; i < programVector.size(); i++ )
-                {
-                    ProgramInstance programInstance = (ProgramInstance) programVector.elementAt( i );
-                    Vector programStageVector = programInstance.getProgramStageInstances();
-                    for ( int j = 0; j < programStageVector.size(); i++ )
-                    {
-                        ProgramStage offlineProgramStage = (ProgramStage) programStageVector.elementAt( j );
-                        if ( offlineProgramStage.getName().equals( uploadProgramStage.getName() ) )
-                        {
-                            programStageVector.setElementAt( uploadProgramStage, j );
-
-                            programInstance.setProgramStageInstances( programStageVector );
-
-                            programVector.setElementAt( programInstance, i );
-                            patient.setEnrollmentPrograms( programVector );
-
-                            ConnectionManager.setUrl( dhisMIDlet.getCurrentOrgUnit().getRegisterPersonUrl() );
-                            ConnectionManager.registerPerson( patient, String.valueOf( programInstance.getId() ) );
-                            break;
-                        }
-                    }
-
-                }
+                uploadInputData();
             }
             else
             {
