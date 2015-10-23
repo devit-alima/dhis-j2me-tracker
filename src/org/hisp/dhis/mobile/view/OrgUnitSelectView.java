@@ -107,6 +107,7 @@ public class OrgUnitSelectView
                     }
                     else
                     {
+                    	nameBasedMidlet.getProgramSelectView().setTargetScreen( targetScreen );
                         nameBasedMidlet.getProgramSelectView().setPrograms(
                             ProgramRecordStore.getNonAnonymousPrograms() );
                     }

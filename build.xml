@@ -36,7 +36,7 @@
 	<!-- Server URL -->
 	<property name="server.url" value="http://localhost:8080/dhis" />
 	<!-- User Name -->
-	<property name="username" value="mobile" />
+	<property name="username" value="admin" />
 	<!-- Password -->
 	<property name="password" value="district"/>
 	<!-- Server Phone Number -->

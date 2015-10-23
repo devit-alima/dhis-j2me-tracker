@@ -631,14 +631,68 @@ public class PersonDashboardView
     public void prepareCompletedPrograms()
     {
         Vector completedPrograms = patient.getCompletedPrograms();
-        for ( int i = 0; i < completedPrograms.size(); i++ )
+        if ( completedPrograms != null )
         {
-            TextArea completedProgramNameTxt = new TextArea(
-                ((ProgramInstance) completedPrograms.elementAt( i )).getName() );
-            completedProgramNameTxt.setEditable( false );
-            completedProgramNameTxt.setEnabled( false );
-            mainForm.addComponent( completedProgramNameTxt );
+            for ( int i = 0; i < completedPrograms.size(); i++ )
+            {
+                final ProgramInstance programInstance = (ProgramInstance) completedPrograms.elementAt( i );
+
+                if ( programInstance.getProgramStageInstances().size() > 1 )
+                {
+                    LinkButton programLink = new LinkButton( programInstance.getName() );
+
+                    programLink.addActionListener( new ActionListener()
+                    {
+                        public void actionPerformed( ActionEvent ae )
+                        {
+                            namebasedMidlet.getProgramStageListView().setPatient( patient );
+                            namebasedMidlet.getProgramStageListView().setProgramInstance( programInstance );
+                            namebasedMidlet.getProgramStageListView().showView();
+                        }
+                    } );
+
+                    mainForm.addComponent( programLink );
+                }
+                // show program has only one program stage which is repeatable
+                else if ( programInstance.getProgramStageInstances().size() == 1 )
+                {
+                    // Single event
+                    final ProgramStage programStageSingle = (ProgramStage) programInstance.getProgramStageInstances()
+                        .elementAt( 0 );
+                    LinkButton programLink = new LinkButton( programInstance.getName() );
+                    programLink.addActionListener( new ActionListener()
+                    {
+                        public void actionPerformed( ActionEvent ae )
+                        {
+                            namebasedMidlet.getTrackingDataEntryView().setPatient( patient );
+                            namebasedMidlet.getTrackingDataEntryView().setProgramStage( programStageSingle );
+                            namebasedMidlet.getTrackingDataEntryView().setTitle( programStageSingle.getName() );
+                            namebasedMidlet.getTrackingDataEntryView().showView();
+                        }
+                    } );
+
+                    mainForm.addComponent( programLink );
+                    final ProgramStage programStage = (ProgramStage) programInstance.getProgramStageInstances()
+                        .elementAt( 0 );
+                    if ( programStage.isRepeatable() )
+                    {
+                        LinkButton programStageLink = new LinkButton( "--" + programStage.getName() );
+                        programStageLink.addActionListener( new ActionListener()
+                        {
+                            public void actionPerformed( ActionEvent arg )
+                            {
+                                namebasedMidlet.getTrackingDataEntryView().setPatient( patient );
+                                namebasedMidlet.getTrackingDataEntryView().setProgramStage( programStage );
+                                namebasedMidlet.getTrackingDataEntryView().showView();
+                            }
+                        } );
+                        mainForm.addComponent( programStageLink );
+                    }
+                }
+            }
         }
+        completedPrograms = null;
+        System.gc();
     }
 
     public Patient getPatient()
