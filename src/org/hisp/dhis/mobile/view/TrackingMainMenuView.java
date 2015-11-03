@@ -47,9 +47,9 @@ public class TrackingMainMenuView
 {
     private static final String CLASS_TAG = "TrackingMainMenuView";
 
-    private static final String MENU_FIND_INSTANCE = "Find Instance";
+    private static final String MENU_FIND_INSTANCE = "Search";
 
-    private static final String MENU_ADD_INSTANCE = "Add Instance";
+    private static final String MENU_ADD_INSTANCE = "Register";
 
     private static final String MENU_VISIT_SCHEDULE = "Visit Schedule";
 
@@ -57,7 +57,7 @@ public class TrackingMainMenuView
 
     private static final String MENU_PENDING_REGISTRATION = "Pending Registration";
 
-    private static final String MENU_SINGLE_EVENT_WITHOUT_REGISTRATION = "Single Event Without Registration";
+    private static final String MENU_SINGLE_EVENT_WITHOUT_REGISTRATION = "Event Capture";
 
     private static final String MENU_LOST_TO_FOLLOW_UP = "Lost to Follow Up";
 

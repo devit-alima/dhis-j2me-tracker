@@ -76,8 +76,9 @@ public abstract class AbstractTask
                     redirect = true;
                     break;
                 case HttpConnection.HTTP_INTERNAL_ERROR:
-                    hcon.close();
-                    throw new IOException( Text.SERVER_ERROR() );
+                    //hcon.close();
+                    //throw new IOException( Text.SERVER_ERROR() );
+					return getDecompressedStream( new DataInputStream( hcon.openInputStream() ) );
                 case HttpConnection.HTTP_UNAUTHORIZED:
                     hcon.close();
                     throw new IOException( Text.INVALID_USER_PASS() );
@@ -210,7 +211,7 @@ public abstract class AbstractTask
     protected DataInputStream downloadUncompress( String additionalProperty, String additionalPropertyName )
         throws IOException
     {
-        LogMan.log( LogMan.INFO, "Network," + CLASS_TAG, "Downloading uncompressed server response..." );
+        LogMan.log( LogMan.INFO, "Network," + CLASS_TAG, "Downloading uncompressed server response..." + additionalProperty + ": " +  additionalPropertyName);
         
         HttpConnection hcon = null;
         try

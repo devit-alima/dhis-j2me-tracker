@@ -134,7 +134,26 @@ public class PersonRegistrationView
 
                 String patientAttributeValue = getPatientAttributeValue( patientAttribute.getName() );
 
-                if ( patientAttribute.getType().equals( "bool" ) )
+				if ( patientAttribute.getOptionSet() != null ) {
+					ComboBox comboBox = new ComboBox();
+                    comboBox.setLabelForComponent( patientAttributeLabel );
+                    comboBox.addItem( "Option" );
+
+                    for ( int j = 0; j < patientAttribute.getOptionSet().getOptions().size(); j++ )
+                    {
+                        String option = (String) patientAttribute.getOptionSet().getOptions().elementAt( j );
+                        comboBox.addItem( option );
+                        if ( patientAttributeValue != null && patientAttributeValue.equalsIgnoreCase( option ) )
+                        {
+                            comboBox.setSelectedIndex( j + 1 );
+                        }
+                    }
+
+                    mainForm.addComponent( comboBox );
+                    patientAttributeValueVector.addElement( comboBox );
+
+				} else {
+					if ( patientAttribute.getType().equals( "bool" ) )
                 {
                     String[] option = { "Option", "Yes", "No" };
 
@@ -236,6 +255,8 @@ public class PersonRegistrationView
                     mainForm.addComponent( patientAttributeTextField );
                     patientAttributeValueVector.addElement( patientAttributeTextField );
                 }
+				}
+                
             }
         }
         catch ( Exception e )

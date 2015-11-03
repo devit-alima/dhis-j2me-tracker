@@ -71,7 +71,7 @@
 	<property name="midp-version" value="MIDP-2.0" />
 	<property name="cldc-version" value="CLDC-1.1" />
 
-	<property name="midlet-name" value="DHISMobile" />
+	<property name="midlet-name" value="TrackerCapture" />
 
 	<property name="midlet-description" value="Mobile aplication for DHIS" />
 	<property name="midlet-vendor" value="HISP" />
