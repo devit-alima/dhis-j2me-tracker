@@ -39,7 +39,7 @@
 	<!-- Server URL -->
 	<property name="server.url" value="http://localhost:8080/dhis" />
 	<!-- User Name -->
-	<property name="username" value="mobile" />
+	<property name="username" value="admin" />
 	<!-- Password -->
 	<property name="password" value="district"/>
 	<!-- Server Phone Number -->
@@ -74,7 +74,7 @@
 	<property name="midp-version" value="MIDP-2.0" />
 	<property name="cldc-version" value="CLDC-1.1" />
 
-	<property name="midlet-name" value="DHISMobile" />
+	<property name="midlet-name" value="TrackerCapture" />
 
 	<property name="midlet-description" value="Mobile aplication for DHIS" />
 	<property name="midlet-vendor" value="HISP" />

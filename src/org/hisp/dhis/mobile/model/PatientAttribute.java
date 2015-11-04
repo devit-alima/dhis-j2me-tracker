@@ -163,8 +163,6 @@ public class PatientAttribute
         this.setDisplayedInList( din.readBoolean() );
         int optionSize = din.readInt();
         
-        System.out.println("Attribute type: " + this.getType() + " OS: " + optionSize);
-        
         if( optionSize > 0 )
         {
             this.optionSet = new OptionSet();
