@@ -24,6 +24,9 @@
      Ant build file for DHISMobile project
 	</description>
 
+	<!-- Property to access environment variables -->
+	<property environment="env"/>
+
 	<!-- Optional file for defining/overriding variables -->
 	<property file="ant-build.properties" />
 
