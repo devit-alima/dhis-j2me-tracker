@@ -571,7 +571,7 @@ public class TrackingDataEntryView
                 textField.setName( "text" );
                 textField.setText( de.getValue() != null ? de.getValue() : "" );
 
-                if ( de.getType().equals( ProgramStageDataElement.VALUE_TYPE_INT ) )
+                if ( de.getType().equals( ProgramStageDataElement.VALUE_TYPE_INT ) ||  de.getType().equals( ProgramStageDataElement.VALUE_TYPE_NUMBER ))
                 {
                     textField.setConstraint( TextField.NUMERIC );
                     textField.setInputModeOrder( new String[] { "123" } );

@@ -34,7 +34,7 @@
 	<!-- Which logo to use -->
 	<property name="logo" value="dhis2_logo.png" />
 	<!-- Server URL -->
-	<property name="server.url" value="http://localhost:8080/dhis" />
+	<property name="server.url" value="http://localhost:8080/dhis/" />
 	<!-- User Name -->
 	<property name="username" value="admin" />
 	<!-- Password -->
